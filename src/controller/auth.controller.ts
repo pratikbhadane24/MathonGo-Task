@@ -12,11 +12,31 @@ export const Register = async (req: Request, res: Response) => {
   });
 
   if (user) {
-    res.status(200).json({
+    return res.status(200).json({
       message: "User Created Successfully",
       data: await user,
     });
-    return;
   }
-  res.send(user);
+  return res.send(user);
+};
+
+export const Login = async (req: Request, res: Response) => {
+  const user = await getRepository(User).findOne({ where: { email: req.body.email } });
+
+  if (!user) {
+    return res.status(404).send({
+      message: "User Not Found",
+    });
+  }
+
+  if (user.password !== req.body.password) {
+    return res.status(401).json({
+      message: "Password is incorrect",
+    });
+  }
+
+  return res.status(200).json({
+    message: "Login Successful",
+    data: user,
+  });
 };
