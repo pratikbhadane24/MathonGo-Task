@@ -1,0 +1,19 @@
+{
+  "name": "mathongo-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratikbhadane24/MathonGo-Task.git"
+  },
+  "author": "Pratik Bhadane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratikbhadane24/MathonGo-Task/issues"
+  },
+  "homepage": "https://github.com/pratikbhadane24/MathonGo-Task#readme"
+}
