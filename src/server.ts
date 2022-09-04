@@ -8,6 +8,7 @@ createConnection({
   url: process.env.MONGODB_URL,
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  entities: ["src/entity/*.ts"],
   logging: true,
   synchronize: true,
 }).then(() => {
