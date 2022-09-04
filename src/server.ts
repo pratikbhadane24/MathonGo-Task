@@ -1,6 +1,7 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import { createConnection } from "typeorm";
 import dotenv from "dotenv";
+import { routes } from "./routes";
 dotenv.config();
 
 createConnection({
@@ -16,9 +17,7 @@ createConnection({
   const app = express();
   app.use(express.json());
 
-  app.get("/", (req: Request, res: Response) => {
-    res.send("Hello World");
-  });
+  routes(app);
 
   const port = process.env.PORT;
   app.listen(port, () => {
