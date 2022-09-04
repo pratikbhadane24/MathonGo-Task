@@ -12,16 +12,15 @@ createConnection({
   synchronize: true,
 }).then(() => {
   console.log("Connected to MongoDB🔥🔥");
-});
+  const app = express();
+  app.use(express.json());
 
-const app = express();
-app.use(express.json());
+  app.get("/", (req: Request, res: Response) => {
+    res.send("Hello World");
+  });
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
-});
-
-const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}/`);
+  const port = process.env.PORT;
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT}/`);
+  });
 });
